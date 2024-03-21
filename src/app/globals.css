@@ -16,18 +16,67 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+
+
+.wrapper {
+  width: 33.33%;
+  mask-repeat: no-repeat;
+  overflow: hidden; /* Add this line to hide any overflow from the image */
+}
+
+.wrapper img {
+  padding: 20%;
+  rotate: 5deg;
+  width: 100%; /* Change the width to 100% to scale the image to fit the container */
+  height: auto; /* Add this line to maintain the image's aspect ratio */
+  object-fit: cover; /* Change object-fit to 'cover' to fill the container while preserving the aspect ratio */
+}
+.mask {
+  mask-image: url('/assets/blob.svg');
+  mask-mode: alpha;
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  mask-position: 0px;
+}
+
+/* Header animation */
+.animate-header {
+  animation-name: headerAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes headerAnimation {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Individual link animation */
+.animate-link {
+  animation-name: linkAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes linkAnimation {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
