@@ -75,16 +75,39 @@ export const education = {
   duration: '2018-2023',
 } as const;
 
+const _assets_dir = '/assets/language-logos/';
+
 export const skills = {
-  fullStack: ['React.js', 'Vite', 'Node.js', 'Express.js', 'MongoDB', 'SQL'],
-  crossPlatform: ['Flutter'],
-  dataAnalysis: ['Python (NumPy, Pandas, Matplotlib)'],
-  frontend: [
-    'Tailwind CSS',
-    'GSAP (GreenSock Animation Platform)',
-    'CSS',
-    'HTML',
+  'FullStack': [
+    { title: 'React.js', img: _assets_dir + 'react.png' },
+    { title: 'Vite', img: _assets_dir + 'vite.svg' },
+    { title: 'Node.js', img: _assets_dir + 'nodejs.svg' },
+    { title: 'Express.js', img: _assets_dir + 'express.svg' },
+    { title: 'MongoDB', img: _assets_dir + 'mongodb.svg' },
+    { title: 'SQL', img: _assets_dir + 'sqlite.svg' },
   ],
-  programmingLanguages: ['Python', 'JavaScript', 'Dart', 'C++'],
-  languages: ['Arabic (Native)', 'English (Intermediate)'],
+  'Cross Platform': [{ title: 'Flutter', img: _assets_dir + 'flutter.svg' }],
+  'Data Analysis': [
+    {
+      title: 'Python (NumPy, Pandas, Matplotlib)',
+      img: _assets_dir + 'python.svg',
+    },
+  ],
+  'Frontend': [
+    { title: 'Tailwind CSS', img: _assets_dir + 'tailwind.png' },
+    { title: 'Framer Motion', img: _assets_dir + 'framer-motion.svg' },
+    { title: 'CSS', img: _assets_dir + 'css.png' },
+    { title: 'HTML', img: _assets_dir + 'html.svg' },
+  ],
+  'Programming Languages': [
+    { title: 'Python', img: _assets_dir + 'python.svg' },
+    { title: 'JavaScript', img: _assets_dir + 'javascript.svg' },
+    { title: 'TypeScript', img: _assets_dir + 'typescript.svg' },
+    { title: 'Dart', img: _assets_dir + 'dart.svg' },
+    { title: 'C++', img: _assets_dir + 'cpp.svg' },
+  ],
+  'Languages': [
+    { title: 'Arabic (Native)', img: _assets_dir + 'ar.svg' },
+    { title: 'English (Intermediate)', img: _assets_dir + 'en.svg' },
+  ],
 } as const;

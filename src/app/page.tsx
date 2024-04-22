@@ -1,16 +1,17 @@
-import Footer from '@/components/footer';
-import Header from '@/components/header';
+
 import About from '@/sections/about';
 import IntroSection from '@/sections/intro';
+import SkillsSection from '@/sections/skills';
+import WhoAmI from '@/sections/who_am_i';
 
 export default function Page() {
   return (
-    <main>
-      <Header></Header>
+    <main className='flex flex-col items-center w-full mx-auto px-2 lg:px-0  max-w-6xl justify-center'>
       <IntroSection></IntroSection>
-      <About key={'about'}></About>
+      <SkillsSection />
 
-      <Footer />
+      <WhoAmI></WhoAmI>
+      <About key={'about'}></About>
     </main>
   );
 }

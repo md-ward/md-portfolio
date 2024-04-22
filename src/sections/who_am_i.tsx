@@ -1,3 +1,3 @@
 export default function WhoAmI() {
-  return <section></section>;
+  return <section className=' h-screen'></section>;
 }

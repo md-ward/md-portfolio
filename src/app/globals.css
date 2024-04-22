@@ -2,64 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --danger: #dc3545;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body::view-transition-old(root),
+body ::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
+
+body {
+  overflow-x: hidden;
+  cursor: url('/assets/cursor.png'), auto;
+  transition: all 0.5s ease-in-out;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--danger);
+  border-radius: 20px;
+}
+
+.hero {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.hero .h-lg {
+  font-size: clamp(40px, 8vw, 80px);
+  color: var(--gray-name);
+}
+
+.hero h3 .h-lg {
+  margin: 5px 0;
+  color: var(--gray-title);
+}
+abbr {
+  font-size: clamp(40px, 8vw, 80px);
+  margin: 5px 0;
+  color: var(--danger) !important;
+  transition: ease-in-out 0.4s;
+}
+abbr:hover {
+  font-size: clamp(40px, 8vw, 80px);
+  margin: 5px 0;
+  color: var(--danger) !important;
+  opacity: 0.9;
+  scale: 1.1;
+}
+
+/* .hero .job-description {
+  max-width: 540px;
+  color: gray;
+}
+
+body .dark .h-lg {
+  color: gray;
+}
+body .dark .h3 .h-lg {
+  color: gray;
+} */
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-}
-
-
-
-.wrapper {
-  width: 33.33%;
-  mask-repeat: no-repeat;
-  overflow: hidden; /* Add this line to hide any overflow from the image */
-}
-
-.wrapper img {
-  padding: 20%;
-  rotate: 5deg;
-  width: 100%; /* Change the width to 100% to scale the image to fit the container */
-  height: auto; /* Add this line to maintain the image's aspect ratio */
-  object-fit: cover; /* Change object-fit to 'cover' to fill the container while preserving the aspect ratio */
-}
-.mask {
-  mask-image: url('/assets/blob.svg');
-  mask-mode: alpha;
-  mask-repeat: no-repeat;
-  mask-size: 100%;
-  mask-position: 0px;
-}
-
-/* Header animation */
-.animate-header {
-  animation-name: headerAnimation;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes headerAnimation {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
 
@@ -68,15 +85,68 @@
   animation-name: linkAnimation;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 @keyframes linkAnimation {
   0% {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
     opacity: 0;
   }
   100% {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
   }
+}
+
+/* Header styles and animation */
+.slid-left {
+  opacity: 0;
+  animation: slid-left 0.8s ease-in-out forwards;
+  animation-delay: 1.1s;
+}
+.slid-left span {
+  opacity: 0;
+  animation: revealAfter 0.8s ease-in-out forwards;
+}
+.slid-left span:first-child {
+  animation-delay: 1.9s;
+}
+.slid-left span:last-child {
+  animation-delay: 2s;
+}
+
+@keyframes revealAfter {
+  from {
+    opacity: 0;
+    scale: 1.5;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes slid-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animatedBg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -2;
+  clip-path: circle(0% at 50% 50%);
+  transition: 1.2s ease-in-out;
 }
