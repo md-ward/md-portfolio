@@ -1,4 +1,4 @@
-'use client'
+'use client';
 async function getPdf() {
   try {
     const response = await fetch('/api/download'); // Replace with your endpoint URL
@@ -22,7 +22,7 @@ export default function CvButton({ displayBtn }: { displayBtn: boolean }) {
       onClick={getPdf}
       type='button'
       style={{ animationDelay: `1.2s` }}
-      className={` light:text-gray-900 rounded-[12px] bg-darkCol px-2 py-1 text-white dark:bg-danger ${displayBtn ? 'block sm:hidden' : 'hidden sm:block'}`}
+      className={`animate-link  light:text-gray-900 rounded-[12px] bg-darkCol/90 px-2 py-1 text-white duration-200 ease-in-out hover:scale-95 dark:bg-danger ${displayBtn ? 'block sm:hidden' : 'hidden sm:block'}`}
     >
       Download CV
     </button>

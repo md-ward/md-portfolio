@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   mode: 'jit',
-  darkMode: 'selector',
+  darkMode: 'class',
   content: ['./src/*/**/*.{js,ts,jsx,tsx,mdx}'],
   important: true,
   theme: {

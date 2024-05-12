@@ -43,7 +43,7 @@ const sideVariants = {
 
 const MobileSideBar = ({ links }: { links: Array<Record<string, string>> }) => {
   const [open, cycleOpen] = useCycle(false, true); // State for toggling the sidebar
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // State for checking if the window size is mobile
+  const [isMobile, setIsMobile] = useState<boolean>(); // State for checking if the window size is mobile
 
   // Effect for handling window resize and updating the isMobile state
   useLayoutEffect(() => {

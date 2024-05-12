@@ -7,7 +7,7 @@ type skillType = {
 
 const SkillCard = ({ skill }: { skill: skillType }) => {
   return (
-    <div className='  !dark:text-darkCol flex  flex-col items-center  justify-between rounded-lg bg-darkCol  p-4 text-center text-grayName shadow-md dark:bg-white'>
+    <div className='   flex-grow-[0.5]  flex-shrink-0 !dark:text-darkCol flex  flex-col items-center  justify-between rounded-lg   bg-white p-4 text-center  text-grayName shadow-md '>
       {/* Placeholder for image */}
       <Image
         src={skill.img}
@@ -23,28 +23,29 @@ const SkillCard = ({ skill }: { skill: skillType }) => {
 
 const SkillsSection = () => {
   return (
-    <section id='skills' className='w-full'>
+    <section
+      id='skills'
+      className=' flex w-full flex-col gap-y-44 '
+    >
       <span className='flex w-full items-center justify-evenly gap-4 text-darkCol dark:text-grayName  '>
         <h1 className='relative'> Skills</h1>
         <span className='h-1 w-full bg-darkCol dark:bg-grayName '></span>
       </span>
 
-      <div className='flex w-full '>
-        <div className='flex w-full flex-col items-start justify-start gap-4'>
-          {Object.entries(skills).map(([category, skillsList]) => (
-            <div
-              key={category}
-              className='flex w-full items-center justify-between'
-            >
-              <h2 className='mb-2 text-lg font-bold'>{category}</h2>
-              <div className='flex flex-row gap-4 '>
-                {skillsList.map((skill) => (
-                  <SkillCard key={skill.title} skill={skill} />
-                ))}
-              </div>
+      <div className='flex w-full flex-col items-start justify-start gap-4 flex-wrap'>
+        {Object.entries(skills).map(([category, skillsList]) => (
+          <div
+            key={category}
+            className='flex w-full flex-col items-center justify-between sm:flex-row '
+          >
+            <h2 className='mb-2 text-lg font-bold dark:text-lightCol'>{category}</h2>
+            <div className='flex flex-row gap-4 flex-wrap justify-center  '>
+              {skillsList.map((skill) => (
+                <SkillCard key={skill.title} skill={skill} />
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

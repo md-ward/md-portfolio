@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import CvButton from './download_cv_button';
 import MobileSideBar from './mobile_sidebar';
 import { ThemeSwitcher } from './theme_switcher';
+
 const inter = Inter({
   weight: '700',
   subsets: ['latin-ext'],
@@ -12,10 +13,10 @@ const inter = Inter({
 export default function Header() {
   return (
     <header
-      className={` mt-2 flex flex-row  items-center justify-between px-2  sm:justify-evenly sm:px-0`}
+      className={`sticky top-0 z-50 mt-2 flex flex-row items-center justify-between px-2  bg-blend-saturation shadow-sm backdrop-blur-sm  sm:justify-evenly sm:px-0`}
     >
       {/* my name .. with animation */}
-      <h1 className={`${inter.className} animate-link `}>
+      <h1 className={`${inter.className} animate-link dark:text-grayName`}>
         <span className=' text-2xl text-danger'>{'<'}</span> Mohammad Ward
         <span className='text-2xl text-danger'>{'/>'}</span>
       </h1>

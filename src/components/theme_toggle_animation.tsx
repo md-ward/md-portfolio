@@ -1,13 +1,14 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect,  } from 'react';
 import { useAnimate } from 'framer-motion';
-import { useTheme } from 'next-themes';
+import usePlayThemeAnimationStore from '@/lib/state_store/play_theme_animation_store';
 
 export const ThemeToggleAnimation = () => {
-  const { theme } = useTheme();
-  const [oldTheme, setOldTheme] = useState<string>('');
+
   const [scope, animate] = useAnimate();
 
+
+const theme=usePlayThemeAnimationStore((state) => state.playThemeAnimationState);
   useEffect(() => {
     const enterAnimation = async () => {
       await animate([
@@ -29,13 +30,8 @@ export const ThemeToggleAnimation = () => {
         ],
       ]);
     };
-    if (oldTheme != '') {
-      console.count('render');
-      enterAnimation();
-    }
+    enterAnimation();
+  }, [animate, , scope,theme]);
 
-    setOldTheme(theme || '');
-  }, [animate, oldTheme, scope, theme]);
-
-  return <div ref={scope} className='animatedBg '></div>;
+  return <div ref={scope} className='animatedBg  '></div>;
 };
