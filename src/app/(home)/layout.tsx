@@ -1,17 +1,26 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ThemeToggleAnimation } from '@/components/theme_toggle_animation';
 import Header from '@/components/header';
 import ScrollToTop from '@/components/scroll_to_top';
 import Footer from '@/components/footer';
 import '@/app/globals.css';
 import { ThemeProvider } from '@/lib/them_provider';
+import dynamic from 'next/dynamic';
+//
+const ThemeToggleAnimation = dynamic(
+  () =>
+    import('@/components/theme_toggle_animation').then(
+      ({ ThemeToggleAnimation }) => ThemeToggleAnimation
+    ),
+
+  { ssr: false }
+);
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Mohammad Ward - Portfolio',
-  description: 'Programmed by : eng.Mohammad ward',
+  description: 'Programmed by: eng.Mohammad ward',
 };
 
 export default function RootLayout({

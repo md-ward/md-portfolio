@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react';
 
 export const ThemeSwitcher = ({ displayBtn }: { displayBtn: boolean }) => {
   const [mounted, setMounted] = useState<string>(); // Add mounted state
-  const { togglePlayThemeAnimation } = usePlayThemeAnimationStore();
+  const { togglePlayThemeAnimation } = usePlayThemeAnimationStore((state) => ({
+    togglePlayThemeAnimation: state.togglePlayThemeAnimation,
+  }));
   function toggleTheme() {
     setTheme(theme === 'light' ? 'dark' : 'light');
     togglePlayThemeAnimation();
