@@ -1,33 +1,46 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
-type NavLinkData = {
+export type NavLinkData = {
   name: string;
-  hash: string;
+  link: string;
 };
 
-export const links: NavLinkData[] = [
+export const dashboard_links : NavLinkData[] = [
+  {
+    name: 'Projects Management',
+    link: '/dashboard/projects',
+  },
+
+  {
+    name: 'Skills  Management',
+    link: '/dashboard/skills',
+  },
+];
+
+export const main_links: NavLinkData[] = [
   {
     name: 'Home',
-    hash: '#home',
+    link: '#home',
   },
   {
     name: 'Skills',
-    hash: '#skills',
+    link: '#skills',
   },
   {
     name: 'Projects',
-    hash: '#projects',
+    link: '#projects',
   },
 
   {
     name: 'Experience',
-    hash: '#experience',
+    link: '#experience',
   },
   {
     name: 'Contact',
-    hash: '#contact',
+    link: '#contact',
   },
 ];
+
 export const contactLinks = [
   {
     label: 'Email',

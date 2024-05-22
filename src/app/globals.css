@@ -7,6 +7,11 @@
 :root {
   --danger: #dc3545;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   overflow-x: hidden;
   cursor: url('/assets/cursor.png'), auto;
@@ -18,7 +23,6 @@ body ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
-
 
 body::-webkit-scrollbar {
   width: 8px;
@@ -140,16 +144,12 @@ abbr:hover {
 }
 
 .animatedBg {
-  
   position: fixed;
   width: 100%;
   height: 100vh;
   filter: blur(20px);
 
-
   z-index: -2;
   clip-path: circle(0% at 50% 50%);
   transition: 1.2s ease-in-out;
 }
-
-

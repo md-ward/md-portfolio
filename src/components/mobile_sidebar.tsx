@@ -90,13 +90,13 @@ const MobileSideBar = ({ links }: { links: Array<Record<string, string>> }) => {
               variants={sideVariants}
             >
               {/* Sidebar items */}
-              {links.map(({ name, hash, index }) => (
+              {links.map(({ name, link, index }) => (
                 <motion.li
                   key={index}
                   variants={itemVariants}
                   className='flex flex-col'
                 >
-                  <Link href={hash}>{name}</Link>
+                  <Link href={link}>{name}</Link>
                 </motion.li>
               ))}
               <span

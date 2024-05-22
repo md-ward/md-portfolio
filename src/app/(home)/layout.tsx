@@ -6,6 +6,8 @@ import Footer from '@/components/footer';
 import '@/app/globals.css';
 import { ThemeProvider } from '@/lib/them_provider';
 import dynamic from 'next/dynamic';
+import Portfolio_Logo from '@/components/logo';
+import { main_links } from '@/lib/links';
 //
 const ThemeToggleAnimation = dynamic(
   () =>
@@ -38,7 +40,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ThemeToggleAnimation />
-          <Header />
+          <Header
+            header_links={main_links}
+            logo={<Portfolio_Logo />}
+            showButtons={true}
+          />
 
           {/* splash animation  */}
           {children}

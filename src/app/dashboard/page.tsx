@@ -1,12 +1,9 @@
-import { NextPage } from 'next';
-import React from 'react';
+import { NextPage } from 'next'
 
-const Dashboard: NextPage = () => {
-  return <section className='w-full flex-1 h-full bg-green-400'>
-sxxxxxxxxxx
+interface Props {}
 
+const Page: NextPage<Props> = ({}) => {
+  return <div></div>
+}
 
-  </section>
-};
-
-export default Dashboard;
+export default Page

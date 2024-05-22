@@ -1,7 +1,7 @@
 export default function IntroSection() {
   return (
     <section
-      className='hero dark:text-grayName !items-center !justify-center place-self-center !text-darkCol   max-sm:px-3'
+      className='hero dark:text-grayName !items-center !justify-center place-self-center text-darkCol   max-sm:px-3'
       id='home'
     >
       <span className=' w-full  text-2xl    text-danger/80'>

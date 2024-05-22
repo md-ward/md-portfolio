@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/app/globals.css';
-import Sidebar from './components/sidebard';
+import Header from '@/components/header';
+import { dashboard_links } from '@/lib/links';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,9 +19,9 @@ export default function DashboardLayout({
   return (
     <html lang='en'>
       <body
-        className={`${inter.className} flex h-full min-h-screen w-full flex-row bg-slate-400`}
+        className={`${inter.className} flex h-full min-h-screen w-full flex-col `}
       >
-        <Sidebar />
+        <Header showButtons={false} header_links={dashboard_links}></Header>
 
         {children}
       </body>
