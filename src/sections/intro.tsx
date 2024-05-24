@@ -10,7 +10,7 @@ export default function IntroSection() {
       <div className='name'>
         <h2 className='h-lg'>Mohammad Ward.</h2>
         <span className='flex  flex-wrap items-center'>
-          <h3 className='h-lg m-2'>Flutter & Fullsatck -</h3>
+          <h3 className='h-lg m-2'>Flutter & FullStack -</h3>
           <abbr className='h-lg ' title='MongoDb,Express.js,React.js,Node.js '>
             MERN
           </abbr>
