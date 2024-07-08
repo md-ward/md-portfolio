@@ -4,7 +4,7 @@ import { contactLinks } from '@/lib/links';
 
 export default function Footer() {
   return (
-    <footer className=' w-full bg-gray-900 py-8'>
+    <footer className=' static bottom-2 w-full bg-gray-900 py-8'>
       <div className='container mx-auto flex flex-col items-center'>
         <div className='flex gap-4'>
           {contactLinks.map((link, index) => (

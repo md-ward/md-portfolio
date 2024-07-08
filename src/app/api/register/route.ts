@@ -1,11 +1,10 @@
 import dbConnection from '@/lib/db_connection';
 import User from '@/schemas/user';
-import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcrypt';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  const { name, password } = await req.body;
+export async function POST(req: NextRequest) {
+  const { name, password } = await req.json();
 
   try {
     await dbConnection();
@@ -14,7 +13,10 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     console.log(name, password);
 
     if (!name || !password) {
-      return res.status(400).json({ error: 'Missing required fields' });
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -25,12 +27,19 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 
     await user.save();
 
-    return res.status(200).json({ message: 'User created successfully', user });
+    return NextResponse.json(
+      { message: 'User created successfully', user },
+      {
+        status: 200,
+      }
+    );
   } catch (error: any) {
     console.log(error.message);
 
     return NextResponse.json(
-      { error: 'An error occurred while creating the user' },
+      {
+        error: 'An error occurred while creating the user',
+      },
       {
         status: 500,
       }

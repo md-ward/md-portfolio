@@ -1,22 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Header from '@/components/header';
-import ScrollToTop from '@/components/scroll_to_top';
-import Footer from '@/components/footer';
+
 import '@/app/globals.css';
 import { ThemeProvider } from '@/lib/them_provider';
 import dynamic from 'next/dynamic';
-import Portfolio_Logo from '@/components/logo';
 import { main_links } from '@/lib/links';
-//
-const ThemeToggleAnimation = dynamic(
-  () =>
-    import('@/components/theme_toggle_animation').then(
-      ({ ThemeToggleAnimation }) => ThemeToggleAnimation
-    ),
-
-  { ssr: false }
-);
+import MySidebar from '@/components/sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,24 +21,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={`${inter.className} bg-lightCol dark:bg-darkCol`}>
+      <body className={`grad  font-['fortnite'] `}>
         <ThemeProvider
           attribute='class'
           defaultTheme='light'
           enableSystem
           disableTransitionOnChange
         >
-          <ThemeToggleAnimation />
-          <Header
-            header_links={main_links}
-            logo={<Portfolio_Logo />}
-            showButtons={true}
-          />
-
-          {/* splash animation  */}
-          {children}
-          <ScrollToTop />
-          <Footer />
+    
+          <div className='flex max-h-screen flex-row  '>
+            <MySidebar NavLinks={main_links} />
+            {/* splash animation  */}
+            <section className='flex w-full flex-col overflow-y-auto'>
+              {children}
+            </section>{' '}
+          </div>
+            {/* <ScrollToTop />
+            <Footer /> */}
         </ThemeProvider>
       </body>
     </html>

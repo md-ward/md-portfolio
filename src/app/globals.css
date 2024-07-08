@@ -2,16 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
 
+@font-face {
+  font-family: 'fortnite';
+  src: url('/assets/Fortnite.ttf');
+}
 :root {
   --danger: #dc3545;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-y: none;
 }
 
+.grad {
+  background: radial-gradient(ellipse at center, #2980b9 0%, #ffffff 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sidebar {
+  place-self: center;
+
+  width: 300px;
+  background-color: #0e1c33;
+  padding: 20px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  height: fit-content;
+  padding: 1rem;
+}
+
+.sidebar-link {
+  transition: all 0.2s ease-in-out;
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  height: 3rem;
+  background: #2980b9;
+  color: white;
+  font-size: x-large;
+  padding: 1rem;
+}
+
+.sidebar-link:hover {
+  background-color: #cddc39;
+  color: black;
+}
 body {
   overflow-x: hidden;
   cursor: url('/assets/cursor.png'), auto;
